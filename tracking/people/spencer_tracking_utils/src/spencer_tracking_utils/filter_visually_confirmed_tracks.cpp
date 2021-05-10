@@ -114,15 +114,19 @@ void newTrackedPersonsAndCompositesReceived(const TrackedPersons::ConstPtr& trac
         // Mark track as still active
         g_trackLastSeenAt[trackId] = currentTime;
     }
-
+    
     // Delete tracks which don't exist any more
     for(std::map<track_id, ros::Time>::const_iterator trackIt = g_trackLastSeenAt.begin(); trackIt != g_trackLastSeenAt.end(); trackIt++) {
+        
+        /*
         if(currentTime - trackIt->second > ros::Duration(5.0) || currentTime < trackIt->second) {
             track_id trackId = trackIt->first;
             g_trackLastSeenAt.erase(trackId);
             g_actualMatchesPerTrackAndModality.erase(trackId);
             g_confirmedTracks.erase(trackId);
+            
         }
+        */
     }
 
     // Publish filtered tracks
