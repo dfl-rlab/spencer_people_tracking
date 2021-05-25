@@ -99,12 +99,12 @@ void newTrackedPersonsAndCompositesReceived(const TrackedPersons::ConstPtr& trac
                     if(minMatchesPerModalityIt == g_minMatchesPerModality.end()) continue; // modality is not of interest to us (e.g. laser)
                     if(modalityIt->second >= minMatchesPerModalityIt->second) numConditionsFulfilled++;
                 }
-                if(numConditionsFulfilled == actualMatchesPerModality.size()) {
+                //if(numConditionsFulfilled == actualMatchesPerModality.size()) {
                     g_confirmedTracks.insert(trackId);
 
                     // If confirmed, add track to result list
                     filteredTracks->tracks.push_back(trackedPerson);
-                }
+                //}
             }
         }
         else {
